@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { PageContext } from '../../../contexts/page-context';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -9,15 +10,13 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 
-import useCurrentPageName from '../../../hooks/use-current-page-name';
-
 import { emptyArray } from '../../../prop-types/empty';
 import style from './style.module.scss';
 
 const NavBar = ({ children }) => {
+  const { currentPageName } = useContext(PageContext);
+
   const [anchorEl, setAnchorEl] = useState(null);
-  // const currentPage =
-  useCurrentPageName();
   const open = Boolean(anchorEl);
 
   const handleMenu = (event) => {
@@ -36,7 +35,7 @@ const NavBar = ({ children }) => {
             <IconButton edge='start' color='inherit' aria-label='menu'>
               <MenuIcon />
             </IconButton>
-            <Typography variant='h6'>Photos</Typography>
+            <Typography variant='h6'>{currentPageName}</Typography>
           </div>
           <div className={style['generic-section']}>
             <IconButton
@@ -64,7 +63,9 @@ const NavBar = ({ children }) => {
               onClose={handleClose}
             >
               {children.map((child, index) => (
-                <MenuItem key={index} onClick={handleClose}>{child}</MenuItem>
+                <MenuItem key={index} onClick={handleClose}>
+                  {child}
+                </MenuItem>
               ))}
             </Menu>
           </div>
