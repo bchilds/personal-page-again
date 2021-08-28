@@ -6,12 +6,30 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import { makeStyles } from '@material-ui/core/styles';
 
 import { emptyArray } from '../../../prop-types/empty';
 import style from './style.module.scss';
+
+const useMenuStyles = makeStyles({
+  list: {
+    minWidth: '10rem',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+});
+
+const useListItemStyles = makeStyles({
+  button: {
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+  }
+});
 
 const NavBar = ({ children }) => {
   const { currentPageName } = useContext(PageContext);
@@ -27,47 +45,43 @@ const NavBar = ({ children }) => {
     setAnchorEl(null);
   };
 
+  const listItemStyles = useListItemStyles();
+
   return (
     <div>
       <AppBar position='static'>
         <Toolbar className={style['bar-container']}>
           <div className={style['generic-section']}>
-            <IconButton edge='start' color='inherit' aria-label='menu'>
-              <MenuIcon />
-            </IconButton>
-            <Typography variant='h6'>{currentPageName}</Typography>
-          </div>
-          <div className={style['generic-section']}>
             <IconButton
-              aria-label='account of current user'
-              aria-controls='menu-appbar'
-              aria-haspopup='true'
-              onClick={handleMenu}
+              edge='start'
               color='inherit'
+              aria-label='menu'
+              onClick={handleMenu}
             >
-              <AccountCircle />
+              <MenuIcon />
             </IconButton>
             <Menu
               id='menu-appbar'
               anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
               keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
               open={open}
               onClose={handleClose}
+              classes={useMenuStyles()}
             >
               {children.map((child, index) => (
-                <MenuItem key={index} onClick={handleClose}>
+                <MenuItem
+                  key={index}
+                  onClick={handleClose}
+                  className={style['menu-item']}
+                  disableGutters
+                  button
+                  ListItemClasses={listItemStyles}
+                >
                   {child}
                 </MenuItem>
               ))}
             </Menu>
+            <Typography variant='h6'>{currentPageName}</Typography>
           </div>
         </Toolbar>
       </AppBar>

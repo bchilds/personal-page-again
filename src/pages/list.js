@@ -10,8 +10,8 @@ const pages = {
   about: {
     path: '/about',
     title: 'About Me',
-    route: <Link to='/about:slug'>About Me</Link>,
-    match: '/about:slug',
+    route: <Link to='/about'>About Me</Link>,
+    match: '/about',
   },
 };
 

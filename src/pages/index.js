@@ -4,6 +4,8 @@ import About from './about';
 import Home from './home';
 import NavBar from '../components/nav/nav-bar';
 
+import style from './style.module.scss';
+
 const RouterComponent = () => {
   return (
     <Router>
@@ -11,8 +13,8 @@ const RouterComponent = () => {
         <PageContextProvider>
           <nav>
             <NavBar>
-              <Link to='/'>Home</Link>
-              <Link to='/about'>About</Link>
+              <Link className={style.link} to='/'>Home</Link>
+              <Link className={style.link} to='/about'>About</Link>
             </NavBar>
           </nav>
 
