@@ -9,12 +9,16 @@ import style from './style.module.scss';
 const RouterComponent = () => {
   return (
     <Router>
-      <div>
+      <div className='body'>
         <PageContextProvider>
           <nav>
             <NavBar>
-              <Link className={style.link} to='/'>Home</Link>
-              <Link className={style.link} to='/about'>About</Link>
+              <Link className={style.link} to='/'>
+                Home
+              </Link>
+              <Link className={style.link} to='/about'>
+                About
+              </Link>
             </NavBar>
           </nav>
 

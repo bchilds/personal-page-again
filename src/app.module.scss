@@ -1,5 +1,31 @@
-.App {
-  text-align: center;
+$footerHeight: 4rem;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.app {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.body {
+  display: flex;
+  width: 100%;
+  max-height: 100%;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.footer {
+  background: rgb(90, 188, 245);
+  min-height: $footerHeight;
 }
 
 .App-logo {
