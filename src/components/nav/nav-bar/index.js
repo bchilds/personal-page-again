@@ -48,7 +48,6 @@ const NavBar = ({ children }) => {
   const listItemStyles = useListItemStyles();
 
   return (
-    <div>
       <AppBar position='static'>
         <Toolbar className={style['bar-container']}>
           <div className={style['generic-section']}>
@@ -85,7 +84,6 @@ const NavBar = ({ children }) => {
           </div>
         </Toolbar>
       </AppBar>
-    </div>
   );
 };
 

@@ -1,0 +1,32 @@
+@use './styles/colors.scss';
+
+$footerHeight: 4rem;
+
+html,
+body,
+#root {
+  height: 100%;
+  background: colors.$backgroundColor;
+}
+
+.app {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.body {
+  display: flex;
+  width: 100%;
+  max-height: calc(100% - #{2 * $footerHeight});
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.footer {
+  background: rgb(219, 142, 255);
+  min-height: $footerHeight;
+}

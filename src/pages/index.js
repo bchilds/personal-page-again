@@ -9,7 +9,6 @@ import style from './style.module.scss';
 const RouterComponent = () => {
   return (
     <Router>
-      <div className='body'>
         <PageContextProvider>
           <nav>
             <NavBar>
@@ -21,6 +20,7 @@ const RouterComponent = () => {
               </Link>
             </NavBar>
           </nav>
+      <div className='body'>
 
           <Switch>
             <Route path='/about'>
@@ -30,8 +30,8 @@ const RouterComponent = () => {
               <Home />
             </Route>
           </Switch>
-        </PageContextProvider>
       </div>
+        </PageContextProvider>
     </Router>
   );
 };

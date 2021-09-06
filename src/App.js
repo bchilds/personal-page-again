@@ -1,5 +1,5 @@
 import { StylesProvider } from '@material-ui/core/styles';
-import './app.module.scss';
+import './app.scss';
 import Router from './pages';
 
 function App() {
