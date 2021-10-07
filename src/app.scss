@@ -1,6 +1,5 @@
 @use './styles/colors.scss';
-
-$footerHeight: 4rem;
+@use './styles/dimensions.scss';
 
 html,
 body,
@@ -21,12 +20,12 @@ body,
 .body {
   display: flex;
   width: 100%;
-  max-height: calc(100% - #{2 * $footerHeight});
+  max-height: calc(100% - #{2 * dimensions.$footerHeight});
   flex-direction: column;
   flex-grow: 1;
 }
 
 .footer {
   background: rgb(219, 142, 255);
-  min-height: $footerHeight;
+  min-height: dimensions.$footerHeight;
 }

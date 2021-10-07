@@ -19,7 +19,6 @@ const Home = () => {
         src='https://personal-github-page.s3.amazonaws.com/beach_me_mini.jpg'
         alt='Ben on a beach, smiling and looking out into the crashing waves'
       />
-      {/* <div className={style.banner} /> */}
     </div>
   );
 };
