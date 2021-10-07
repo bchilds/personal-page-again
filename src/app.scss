@@ -6,6 +6,7 @@ body,
 #root {
   height: 100%;
   background: colors.$backgroundColor;
+  color: white;
 }
 
 .app {
@@ -23,6 +24,7 @@ body,
   max-height: calc(100% - #{2 * dimensions.$footerHeight});
   flex-direction: column;
   flex-grow: 1;
+  overflow-y: auto;
 }
 
 .footer {
